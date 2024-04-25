@@ -1,8 +1,6 @@
-FROM  python    
-WORKDIR /project
-COPY . /docker
+FROM python:3.9-alpine
+WORKDIR /python-image
+COPY  . .
+RUN python -m pip install --upgrade pip
 RUN pip install nltk
-RUN pip install pandas
-RUN pip install numpy
-
-CMD [ "python3","code.py" ]
+CMD ["python", "app.py"]
